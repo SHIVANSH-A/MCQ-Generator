@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate MCQs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    
+   
+    <nav class="bg-white shadow-md w-full py-4 px-6 flex justify-between items-center fixed top-0">
+        <div class="flex items-center space-x-3">
+            <img src="{{ url_for('static', filename='icon.png') }}" alt="Logo" class="h-10 w-10">
+            <h1 class="text-xl font-semibold text-gray-800">MCQ Generator</h1>
+        </div>
+        <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+    </nav>
+    
+    
+    <div class="bg-white rounded-lg shadow-lg p-8 w-full max-w-lg mt-20">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Generate MCQs</h2>
+        <p class="text-gray-600 text-center mb-6">Upload a PDF or TXT file to generate multiple-choice questions.</p>
+        
+        <form method="POST" enctype="multipart/form-data" class="space-y-4">
+            <label class="block text-gray-700 font-medium">Upload File(s)</label>
+            <input type="file" name="files[]" multiple class="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-blue-400">
+            
+            <label class="block text-gray-700 font-medium">Number of Questions</label>
+            <select name="num_questions" class="w-full px-4 py-2 border rounded-md bg-gray-50 focus:ring-2 focus:ring-blue-400">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">Generate MCQs</button>
+        </form>
+    </div>
+</body>
+</html>
